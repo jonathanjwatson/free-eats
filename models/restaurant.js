@@ -20,6 +20,10 @@ const restaurantSchema = new Schema({
     type: String,
     trim: true,
   },
+  featuredImageUrl: {
+    type: String,
+    required: true,
+  },
 });
 
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);

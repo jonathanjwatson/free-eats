@@ -1,20 +1,22 @@
-import { useEffect } from "react";
-import axios from "axios";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AllRestaurants from "./containers/AllRestaurants/AllRestaurants";
+import EditRestaurant from "./containers/EditRestaurant/EditRestaurant";
+import Home from "./containers/Home/Home";
+import NewRestaurant from "./containers/NewRestaurant/NewRestaurant";
+import SingleRestaurant from "./containers/SingleRestaurant/SingleRestaurant";
 
 function App() {
-  useEffect(() => {
-    axios
-      .get("/api/config")
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
   return (
     <div className="App">
-      <h1>Hello world</h1>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/restaurants" component={AllRestaurants} />
+          <Route exact path="/restaurants/new" component={NewRestaurant} />
+          <Route exact path="/restaurants/:id" component={SingleRestaurant} />
+          <Route exact path="/restaurants/:id/edit" component={EditRestaurant} />
+        </Switch>
+      </Router>
     </div>
   );
 }
