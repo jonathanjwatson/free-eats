@@ -4,6 +4,7 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Restaurant.find(req.query)
+      .populate("menuItems")
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
@@ -12,6 +13,23 @@ module.exports = {
     db.Restaurant.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  findByIdWithMenuItems: function (req, res) {
+    db.Restaurant.findById(req.params.id)
+      .populate("menuItems")
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(400).json(err));
+  },
+  createMenuItem: function (req, res) {
+    db.MenuItem.create(req.body).then((newMenuItem) => {
+      db.Restaurant.findByIdAndUpdate(
+        req.params.id,
+        { $push: { menuItems: newMenuItem._id } },
+        { new: true }
+      ).then((updatedRestaurant) => {
+        res.json(updatedRestaurant);
+      });
+    });
   },
   create: function (req, res) {
     db.Restaurant.create(req.body)

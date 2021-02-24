@@ -4,17 +4,26 @@ import EditRestaurant from "./containers/EditRestaurant/EditRestaurant";
 import Home from "./containers/Home/Home";
 import NewRestaurant from "./containers/NewRestaurant/NewRestaurant";
 import SingleRestaurant from "./containers/SingleRestaurant/SingleRestaurant";
+import NavBar from "./components/NavBar/NavBar";
+import Admin from "./containers/Admin/Admin";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/restaurants" component={AllRestaurants} />
-          <Route exact path="/restaurants/new" component={NewRestaurant} />
           <Route exact path="/restaurants/:id" component={SingleRestaurant} />
-          <Route exact path="/restaurants/:id/edit" component={EditRestaurant} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/restaurants/new" component={NewRestaurant} />
+
+          <Route
+            exact
+            path="/restaurants/:id/edit"
+            component={EditRestaurant}
+          />
         </Switch>
       </Router>
     </div>

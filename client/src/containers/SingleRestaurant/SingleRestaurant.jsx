@@ -9,7 +9,7 @@ const SingleRestaurant = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/restaurants/${id}`)
+      .get(`/api/restaurants/${id}/menuItems`)
       .then((response) => {
         setRestaurant(response.data);
       })

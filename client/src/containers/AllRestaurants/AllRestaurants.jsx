@@ -21,11 +21,6 @@ const AllRestaurants = () => {
 
   return (
     <div className="container">
-        <div className="row">
-            <div className="col s12">
-            <Link to="/restaurants/new" className="waves-effect waves-light btn">Add new restaurant</Link>
-            </div>
-        </div>
       <div className="row">
         {restaurants.map((restaurant) => (
           <div className="col s4" key={restaurant._id}>

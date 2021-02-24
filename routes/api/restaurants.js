@@ -14,4 +14,9 @@ router
   .put(restaurantsController.update)
   .delete(restaurantsController.remove);
 
+router
+  .route("/:id/menuItems")
+  .get(restaurantsController.findByIdWithMenuItems)
+  .post(restaurantsController.createMenuItem);
+
 module.exports = router;
