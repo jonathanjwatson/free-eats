@@ -17,11 +17,11 @@ function App() {
           <Route exact path="/restaurants" component={AllRestaurants} />
           <Route exact path="/restaurants/:id" component={SingleRestaurant} />
           <Route exact path="/admin" component={Admin} />
-          <Route exact path="/restaurants/new" component={NewRestaurant} />
+          <Route exact path="/admin/restaurants/new" component={NewRestaurant} />
 
           <Route
             exact
-            path="/restaurants/:id/edit"
+            path="/admin/restaurants/:id/edit"
             component={EditRestaurant}
           />
         </Switch>
