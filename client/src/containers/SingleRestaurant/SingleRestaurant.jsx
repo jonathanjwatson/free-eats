@@ -15,7 +15,7 @@ const SingleRestaurant = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="container">

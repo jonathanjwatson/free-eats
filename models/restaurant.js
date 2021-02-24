@@ -12,6 +12,18 @@ const restaurantSchema = new Schema({
     type: String,
     trim: true,
   },
+  city: {
+    type: String,
+    trim: true,
+  },
+  state: {
+    type: String,
+    trim: true,
+  },
+  zip: {
+    type: String,
+    trim: true,
+  },
   phone: {
     type: String,
     trim: true,
